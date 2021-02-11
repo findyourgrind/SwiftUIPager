@@ -51,6 +51,7 @@ struct EmbeddedExampleView: View {
                               id: \.self) { page in
                                 self.pageView(page)
                         }
+                        .clipped(false)
                         .alignment(PositionAlignment(alignment: self.alignment))
                         .itemSpacing(10)
                         .itemAspectRatio(0.8, alignment: .end)

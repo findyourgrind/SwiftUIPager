@@ -25,6 +25,7 @@ struct ColorsExampleView: View {
                           id: \.self) {
                             self.pageView($0)
                     }
+                    .clipped(false)
                     .contentLoadingPolicy(.eager)
                     .disableDragging()
                     .itemSpacing(10)

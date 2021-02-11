@@ -187,6 +187,10 @@ extension Pager.PagerContent: Buildable, PagerProxy {
             .mutating(keyPath: \.preferredItemSize, value: value)
     }
 
+    public func clipped(_ isClipped: Bool) -> Self {
+        mutating(keyPath: \.isClipped, value: isClipped)
+    }
+
     /// Adds a callback to react to every change on the page index.
     ///
     /// - Parameter callback: block to be called when `page` changes

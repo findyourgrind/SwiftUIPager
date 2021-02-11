@@ -110,6 +110,9 @@ extension Pager {
         /// Will try to have the items fit this size
         var preferredItemSize: CGSize?
 
+        // Whether `Pager` content is `clipped()`
+        var isClipped: Bool = false
+
         /// Callback for every new page
         var onPageChanged: ((Int) -> Void)?
 		

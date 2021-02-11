@@ -57,6 +57,8 @@ protocol PagerProxy {
     /// Will try to have the items fit this size
     var preferredItemSize: CGSize?  { get }
 
+    var isClipped: Bool { get }
+
     /// Callback for every new page
     var onPageChanged: ((Int) -> Void)?  { get }
 	
@@ -189,5 +191,8 @@ protocol PagerProxy {
     ///
     /// - Parameter lenght: padding
     func padding(_ length: CGFloat) -> Self
+
+
+    func clipped(_ isClipped: Bool) -> Self
 
 }

@@ -238,5 +238,9 @@ extension Pager: Buildable, PagerProxy {
         return mutating(keyPath: \.sideInsets, value: length ?? 8)
     }
 
+    public func clipped(_ isClipped: Bool) -> Self {
+        mutating(keyPath: \.isClipped, value: isClipped)
+    }
+
 }
 

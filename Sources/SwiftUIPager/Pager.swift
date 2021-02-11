@@ -118,8 +118,11 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
     /// Whether `Pager` should page multiple pages at once
     var allowsMultiplePagination: Bool = false
 
-    /// Wheter `Pager` delays gesture recognition
+    /// Whether `Pager` delays gesture recognition
     var delaysTouches: Bool = true
+
+    // Whether `Pager` content is `clipped()`
+    var isClipped: Bool = true
 
     /// Priority selected to add `swipeGesture`
     var gesturePriority: GesturePriority = .default
@@ -175,11 +178,20 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
         self.content = content
     }
 
+
+
     public var body: some View {
+        if isClipped {
+            bodyContent.clipped()
+        } else {
+            bodyContent
+        }
+    }
+
+    private var bodyContent: some View {
         GeometryReader { proxy in
             self.content(for: proxy.size)
         }
-        .clipped()
     }
 
     func content(for size: CGSize) -> PagerContent {
